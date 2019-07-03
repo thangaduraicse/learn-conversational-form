@@ -2,8 +2,6 @@ const uuid = require("uuid/v1");
 let AWS = require("aws-sdk");
 
 const unAuthorized = res => {
-  res.set("WWW-Authenticate", "Basic realm=Authorization Required");
-
   return res.sendStatus(401);
 };
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import * as conversationalForm from "conversational-form";
 
 export default class MyForm extends React.Component {
@@ -63,6 +64,7 @@ export default class MyForm extends React.Component {
   render() {
     return (
       <div>
+        <Link to="/report-details">Login</Link>
         <div ref={ref => (this.elem = ref)} />
       </div>
     );

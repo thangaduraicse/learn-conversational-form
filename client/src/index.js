@@ -1,20 +1,17 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import MyForm from "./myForm";
+import { Route, Link, BrowserRouter as Router } from "react-router-dom";
+import Registration from "./myForm";
+import Reports from "./reports";
 import "./style.css";
 
-class App extends Component {
-  /*  constructor() {
-    super();
-  } */
+const routing = (
+  <Router>
+    <div>
+      <Route exact path="/" component={Registration} />
+      <Route exact path="/report-details" component={Reports} />
+    </div>
+  </Router>
+);
 
-  render() {
-    return (
-      <div>
-        <MyForm />
-      </div>
-    );
-  }
-}
-
-render(<App />, document.getElementById("root"));
+render(routing, document.getElementById("root"));

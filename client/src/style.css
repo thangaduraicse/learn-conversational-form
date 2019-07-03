@@ -5,3 +5,7 @@ body {
   background: #eee;
   margin: 10px auto;
 }
+
+.conversational-form {
+  top: 25px !important;
+}
