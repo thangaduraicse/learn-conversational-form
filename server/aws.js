@@ -1,19 +1,18 @@
-const uuid = require('uuid/v1')
-let AWS = require('aws-sdk');
+const uuid = require("uuid/v1");
+let AWS = require("aws-sdk");
 
 const unAuthorized = res => {
-  res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+  res.set("WWW-Authenticate", "Basic realm=Authorization Required");
 
   return res.sendStatus(401);
 };
 
 module.exports = (app, instanceConfiguration) => {
-
-  AWS.config.update({region: instanceConfiguration.region});
+  AWS.config.update({ region: instanceConfiguration.region });
 
   let dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-  app.post('/register', (req, res) => {
+  app.post("/register", (req, res) => {
     let params = {
       TableName: instanceConfiguration.tableName,
       Item: {
@@ -25,22 +24,27 @@ module.exports = (app, instanceConfiguration) => {
       }
     };
 
-    return dynamoDb.put(params).promise()
-      .then(() => res.sendStatus(201));
+    return dynamoDb
+      .put(params)
+      .promise()
+      .then(() => res.sendStatus(201))
+      .catch(ex => console.log(`Exception occured... ${ex}`));
   });
 
-  app.post('/reports', (req, res) => {
+  app.post("/reports", (req, res) => {
     const user = req.body;
 
     if (!user || !user.uname || !user.pass) {
       unAuthorized(res);
     }
 
-    if (user.uname === 'cloudfarmers' && user.pass === 'password') {
-      return dynamoDb.scan({ TableName: instanceConfiguration.tableName }).promise()
-        .then(response => res.send(response.Items));
-    }
-    else {
+    if (user.uname === "cloudfarmers" && user.pass === "password") {
+      return dynamoDb
+        .scan({ TableName: instanceConfiguration.tableName })
+        .promise()
+        .then(response => res.send(response.Items))
+        .catch(ex => console.log(`Exception occured... ${ex}`));
+    } else {
       unAuthorized(res);
     }
   });
