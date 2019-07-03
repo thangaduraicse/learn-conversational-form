@@ -1,0 +1,24 @@
+{
+  "name": "cloud-farmers-ui",
+  "version": "1.0.0",
+  "description": "Sample application with zero downtime",
+  "main": "src/index.jsx",
+  "scripts": {
+    "test": "\"\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/thangaduraicse/cloud-farmers.git"
+  },
+  "keywords": [
+    "React",
+    "Redux",
+    "Thunk"
+  ],
+  "author": "Cloud Farmers Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thangaduraicse/cloud-farmers/issues"
+  },
+  "homepage": "https://github.com/thangaduraicse/cloud-farmers#readme"
+}
