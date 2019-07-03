@@ -1,4 +1,3 @@
-const basicAuth = require('basic-auth');
 const uuid = require('uuid/v1')
 let AWS = require('aws-sdk');
 
@@ -14,7 +13,7 @@ module.exports = (app, instanceConfiguration) => {
 
   let dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-  api.post('/register', req => {
+  app.post('/register', (req, res) => {
     let params = {
       TableName: instanceConfiguration.tableName,
       Item: {
@@ -26,11 +25,12 @@ module.exports = (app, instanceConfiguration) => {
       }
     };
 
-    return dynamoDb.put(params).promise();
-  }, { success: 201 });
+    return dynamoDb.put(params).promise()
+      .then(() => res.sendStatus(201));
+  });
 
-  api.get('/reports', (req, res) => {
-    const user = basicAuth(req);
+  app.post('/reports', (req, res) => {
+    const user = req.body;
 
     if (!user || !user.uname || !user.pass) {
       unAuthorized(res);
@@ -38,7 +38,7 @@ module.exports = (app, instanceConfiguration) => {
 
     if (user.uname === 'cloudfarmers' && user.pass === 'password') {
       return dynamoDb.scan({ TableName: instanceConfiguration.tableName }).promise()
-        .then(response => response.Items);
+        .then(response => res.send(response.Items));
     }
     else {
       unAuthorized(res);
