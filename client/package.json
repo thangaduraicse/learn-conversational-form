@@ -4,11 +4,11 @@
   "description": "Sample application with zero downtime",
   "main": "src/index.jsx",
   "scripts": {
-    "test": "\"\""
+    "test": ""
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/thangaduraicse/cloud-farmers.git"
+    "url": "https://github.com/thangaduraicse/cloud-farmers.git"
   },
   "keywords": [
     "React",
