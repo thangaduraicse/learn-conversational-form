@@ -72,32 +72,34 @@ export default class Report extends Component {
     }
 
     return (
-      <div className="container">
-        <form>
-          <div class="form-group">
-            <label for="uname">Username</label>
-            <input
-              type="text"
-              class="form-control"
-              id="uname"
-              placeholder="Please enter the username"
-              onChange={this.onChange}
-            />
-          </div>
-          <div class="form-group">
-            <label for="pass">Password</label>
-            <input
-              type="text"
-              class="form-control"
-              id="pass"
-              placeholder="Please enter the password"
-              onChange={this.onChange}
-            />
-          </div>
-          <button type="submit" class="btn btn-primary" onClick={this.onClick}>
-            Login
-          </button>
-        </form>
+      <div className="row-container">
+        <div className="column-container">
+          <form id="loginForm">
+            <div className="form-group">
+              <label htmlFor="uname">Username</label>
+              <input
+                type="text"
+                className="form-control"
+                id="uname"
+                placeholder="Please enter the username"
+                onChange={this.onChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="pass">Password</label>
+              <input
+                type="text"
+                className="form-control"
+                id="pass"
+                placeholder="Please enter the password"
+                onChange={this.onChange}
+              />
+            </div>
+            <button type="submit" className="btn btn-primary" onClick={this.onClick}>
+              Login
+            </button>
+          </form>
+        </div>
       </div>
     );
   }

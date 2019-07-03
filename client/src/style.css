@@ -1,11 +1,40 @@
 html,
 body {
-  height: 90%;
-  width: 96%;
-  background: #eee;
-  margin: 10px auto;
+  height: 100%;
+  width: 100%;
+  background: #F2F2F2;
+  margin: 0;
+  padding: 0;
 }
 
-.conversational-form {
-  top: 25px !important;
+#root {
+  margin: 0 40px;
+}
+
+#conversational-form {
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+}
+
+#loginForm {
+  width: 300px;
+}
+
+.row-container {
+  display: table;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.column-container {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.login-link {
+  text-align: right;
+  padding: 10px;
+  font-weight: bold;
 }

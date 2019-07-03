@@ -64,7 +64,9 @@ export default class MyForm extends React.Component {
   render() {
     return (
       <div>
-        <Link to="/report-details">Login</Link>
+        <div className="login-link">
+          <Link to="/report-details">Login</Link>
+        </div>
         <div ref={ref => (this.elem = ref)} />
       </div>
     );
