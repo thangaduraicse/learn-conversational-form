@@ -48,26 +48,30 @@ export default class Report extends Component {
 
     if (reports.length > 0) {
       return (
-        <table>
-          <thead>
-            <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-            </tr>
-          </thead>
-          <tbody>
-            {reports.map(report => (
-              <tr key={report.id}>
-                <td>{report.firstName}</td>
-                <td>{report.lastName}</td>
-                <td>{report.email}</td>
-                <td>{report.phone}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="row-container">
+          <div className="column-container">
+            <table className="table table-bordered">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                </tr>
+              </thead>
+              <tbody>
+                {reports.map(report => (
+                  <tr key={report.id}>
+                    <td>{report.firstName}</td>
+                    <td>{report.lastName}</td>
+                    <td>{report.email}</td>
+                    <td>{report.phone}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
       );
     }
 
@@ -88,7 +92,7 @@ export default class Report extends Component {
             <div className="form-group">
               <label htmlFor="pass">Password</label>
               <input
-                type="text"
+                type="password"
                 className="form-control"
                 id="pass"
                 placeholder="Please enter the password"
