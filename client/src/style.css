@@ -2,7 +2,7 @@ html,
 body {
   height: 100%;
   width: 100%;
-  background: #F2F2F2;
+  background: #f2f2f2;
   margin: 0;
   padding: 0;
 }
@@ -16,6 +16,26 @@ body {
   left: 40px;
   right: 40px;
   bottom: 40px;
+}
+
+#conversational-form
+  div.conversational-form-inner
+  cf-chat-response.robot
+  text
+  > p.show {
+  color: white !important;
+  background-color: indigo !important;
+  font-size: 1.2em;
+}
+
+#conversational-form
+  div.conversational-form-inner
+  cf-chat-response.user
+  text
+  > p.show {
+  color: black !important;
+  background-color: orange !important;
+  font-size: 1.2em;
 }
 
 #loginForm {
